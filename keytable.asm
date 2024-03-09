@@ -15,16 +15,22 @@ VIEW_WIDTH:
 keytable: 
     db $0D, $00, $00, $00, $00, $00, $00, $00, $00, ENTER
     db $09, $00, $00, $00, $00, $00, $00, $00, $00, TAB
-    db $7F, $00, $00, $00, $00, $00, $00, $00, $00, BACKSPACE
+    db $08, $00, $00, $00, $00, $00, $00, $00, $00, BACKSPACE           ;^H
     db $1B, $5B, $33, $7E, $00, $00, $00, $00, $00, USER_DELETE
     db $1B, $5B, $41, $00, $00, $00, $00, $00, $00, USER_CURSOR_UP
     db $1B, $5B, $42, $00, $00, $00, $00, $00, $00, USER_CURSOR_DOWN
     db $1B, $5B, $44, $00, $00, $00, $00, $00, $00, USER_CURSOR_LEFT
     db $1B, $5B, $43, $00, $00, $00, $00, $00, $00, USER_CURSOR_RIGHT
-    db $1B, $5B, $48, $00, $00, $00, $00, $00, $00, USER_CURSOR_HOME
-    db $1B, $5B, $46, $00, $00, $00, $00, $00, $00, USER_CURSOR_END
+    db $1B, $5B, $31, $7E, $00, $00, $00, $00, $00, USER_CURSOR_HOME
+    db $1B, $5B, $34, $7E, $00, $00, $00, $00, $00, USER_CURSOR_END
     db $1B, $5B, $35, $7E, $00, $00, $00, $00, $00, USER_CURSOR_PGUP
     db $1B, $5B, $36, $7E, $00, $00, $00, $00, $00, USER_CURSOR_PGDN
-    db $18, $00, $00, $00, $00, $00, $00, $00, $00, USER_QUIT
-    db $19, $00, $00, $00, $00, $00, $00, $00, $00, USER_QUIT_NO_SAVE
+    db $18, $00, $00, $00, $00, $00, $00, $00, $00, USER_QUIT           ;^X
+    db $11, $00, $00, $00, $00, $00, $00, $00, $00, USER_QUIT_NO_SAVE   ;^Q
     db $00
+
+;original
+;   db $7F, $00, $00, $00, $00, $00, $00, $00, $00, BACKSPACE          ;DEL
+;   db $1B, $5B, $35, $7E, $00, $00, $00, $00, $00, USER_CURSOR_PGUP
+;   db $1B, $5B, $36, $7E, $00, $00, $00, $00, $00, USER_CURSOR_PGDN
+;   db $19, $00, $00, $00, $00, $00, $00, $00, $00, USER_QUIT_NO_SAVE  ;^Y
