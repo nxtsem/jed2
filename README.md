@@ -1,5 +1,4 @@
 # jed
-
 This is a text editor for CP/M v2.2
 
 It is a "modern" text editor, in that it can use VT100 cursor keys, and Page Up, Page Down, Home, End, Backspace etc, rather than CP/M-style Ctrl-S, Ctrl-E keys! But it is totally configurable, so you can set the keys to be whatever you want.
@@ -22,9 +21,17 @@ I am experimenting with syntax highlighting specifically for assembler files, so
 
 There is also an auto-indent option, so if you indent a line, then press ENTER, the next line will be implemented too.
 
-# TODO list:
+------------------------------------------------------------------------------------------
+Note from NXTSEM: The Jed editor is a fast, small and lightweight editor. A CP/M editor that uses arrow keys, page up/down, ect. is excellent for those that are used to typing on modern PC keyboards.  While Jed ran well on the RunCPM CP/M emulator, it would erase the previous content of a file that was re-opened for editing on my CP/M-Z80 hardware and other CP/M emulators.  
 
-* Implement "JED newfile.txt" so you can create a new empty file.
-* Selecting parts of a file with shift-cursor-keys.
-* Copy/Paste/Cut
-* Integrate ZSM so that you can assemble and make a .com file directly from inside JED.
+My terminal setup is TeraTerm running on Windows emulating a VT100 using a typical PC keyboard. 
+Modifications: Altered statements to be compatible with assemblers such as zmac (2022 version for windows) and
+for other reasons.
+   a) Changed binary number declarations from %xxxxxxxx to xxxxxxxxb.
+   b) Changed DS n directives to DC n,0 to fill data segments with zeroes (matches original assembled code).
+   c) Added error messages to some BDOS call file functions (initially for debug).
+   d) Orginal read sequential code may have be in error.  Replaced CP 255, jr nz for CP 0, jr z.
+      This seems to have fixed the file content erase issue for me.
+   e) Altered some of the default keystroke entries to match my setup.    
+
+One other issue is that the configuration program (jedconf) does not actually store changes to the screen row/column settings (default is 24x80).  I plan to work on that next.  My goal is to keep the program size under 4K bytes (0FFF). 
